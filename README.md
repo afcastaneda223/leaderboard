@@ -47,9 +47,7 @@ This is an example of how to list things you need to use the software and how to
 
 ## Author
 
-👤 **Author**
-
-**Andres Felipe Castañeda Ramos**
+👤 **Andres Felipe Castañeda Ramos**
 - Github: [@afcastaneda223](https://github.com/afcastaneda223)
 - Twitter: [@afcastaneda](https://twitter.com/afcastaneda)
 - Linkedin: [Andres Felipe Castañeda](www.linkedin.com/in/andres-castaneda223)
