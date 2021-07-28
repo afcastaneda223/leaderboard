@@ -2,7 +2,7 @@
 
 > This is a project to create and a to do list with js using webpack!The leaderboard website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.
 
-![screenshot](./screenshot.png)
+![screenshot](./leaderboard_screenshot.png)
 
 
 ## Live-version
@@ -47,9 +47,7 @@ This is an example of how to list things you need to use the software and how to
 
 ## Author
 
-👤 **Authors**
-
-**Andres Felipe Castañeda Ramos**
+👤 **Andres Felipe Castañeda Ramos**
 - Github: [@afcastaneda223](https://github.com/afcastaneda223)
 - Twitter: [@afcastaneda](https://twitter.com/afcastaneda)
 - Linkedin: [Andres Felipe Castañeda](www.linkedin.com/in/andres-castaneda223)
