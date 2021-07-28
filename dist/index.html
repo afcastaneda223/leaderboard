@@ -1,1 +1,50 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Leaderboard</title><script defer="defer" src="main.bundle.js"></script></head><body class="body"><div class="container mt-5"><div class="card text-center"><h1 class="card-header">Leaderboard</h1><div class="container"><div class="row row-cols-2"><div class="col"><div class="d-flex justify-content-center my-3"><h3 class="me-3">Recent Scores</h3><button type="button" class="btn btn-success ms-3">Refresh</button></div><div class="my-4"><ul class="list-group"></ul></div></div><div class="col"><div class="d-flex justify-content-center my-3"><h3 class="me-3">Add your score</h3></div><div class="my-4"><form id="form"><input id="nameInput" class="form-control text-center mb-3" placeholder="Your name" required> <input id="scoreInput" class="form-control text-center mb-3" placeholder="Your score" required> <button type="submit" class="btn btn-primary" value="submit" name="submit">Submit</button></form></div></div></div></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+<script defer src="main.bundle.js"></script></head>
+
+<body class="body">
+    <div class="container mt-5">
+        <div class="card text-center">
+            <h1 class="card-header">
+                Leaderboard
+            </h1>
+            <div class="container">
+                <div class="row row-cols-2 ">
+                    <div class="col">
+                        <div class="d-flex justify-content-center my-3">
+                            <h3 class="me-3">Recent Scores</h3>
+                            <button type="button" class="btn btn-success ms-3">Refresh</button>
+                        </div>
+                        <div class="my-4">
+                            <ul class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-center my-3">
+                            <h3 class="me-3">Add your score</h3>
+                        </div>
+                        <div class="my-4">
+                            <form method="GET" id="form">
+                                <input type="text" id="nameInput" class="form-control text-center mb-3"
+                                    placeholder="Your name" required>
+                                <input type="text" id="scoreInput" class="form-control text-center mb-3"
+                                    placeholder="Your score" required>
+                                <button type="submit" class="btn btn-primary" value="submit"
+                                    name="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
