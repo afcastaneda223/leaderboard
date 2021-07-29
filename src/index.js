@@ -10,7 +10,7 @@ const getUl = document.querySelector('ul');
 const getRefresh = document.getElementById('refreshBtn');
 
 async function fetchStart(a, b) {
-  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Q4dOQNTmE02jPmG3c1iI/scores/', {
+  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ytd5zJzS5gn4qgb9ylPV/scores/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ getForm.addEventListener('submit', (e) => {
 });
 
 async function fetchRefresh() {
-  const refresh = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Q4dOQNTmE02jPmG3c1iI/scores/');
+  const refresh = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ytd5zJzS5gn4qgb9ylPV/scores/');
   const scores = await refresh.json();
   return scores;
 }
