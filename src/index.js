@@ -7,14 +7,46 @@ const getForm = document.querySelector('#form');
 const getScore = document.getElementById('scoreInput');
 const getName = document.getElementById('nameInput');
 const getUl = document.querySelector('ul');
+const getRefresh = document.getElementById('refreshBtn');
+
+async function fetchStart(a, b) {
+  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Q4dOQNTmE02jPmG3c1iI/scores/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user: a,
+      score: b,
+    }),
+  })
+    .then((res) => res.json());
+  return response;
+}
 
 getForm.addEventListener('submit', (e) => {
+  const nameValue = getName.value;
+  const scoreValue = getScore.value;
   e.preventDefault();
-  const li = document.createElement('li');
-  li.setAttribute('class', 'list-group-item list-group-item-action');
-  const p = document.createElement('p');
-  p.innerText = `Name: ${getName.value} /  Score: ${getScore.value}`;
-  li.appendChild(p);
-  getUl.appendChild(li);
+  fetchStart(nameValue, scoreValue);
   getForm.reset();
+});
+
+async function fetchRefresh() {
+  const refresh = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Q4dOQNTmE02jPmG3c1iI/scores/');
+  const scores = await refresh.json();
+  return scores;
+}
+getRefresh.addEventListener('click', () => {
+  fetchRefresh().then((data) => {
+    getUl.innerHTML = '';
+    data.result.forEach((elem) => {
+      const li = document.createElement('li');
+      li.setAttribute('class', 'list-group-item list-group-item-action');
+      const p = document.createElement('p');
+      p.innerText = `${elem.user}: ${elem.score}`;
+      li.appendChild(p);
+      getUl.appendChild(li);
+    });
+  });
 });

@@ -18,7 +18,7 @@
                     <div class="col">
                         <div class="d-flex justify-content-center my-3">
                             <h3 class="me-3">Recent Scores</h3>
-                            <button type="button" class="btn btn-success ms-3">Refresh</button>
+                            <button type="button" class="btn btn-success ms-3" id="refreshBtn">Refresh</button>
                         </div>
                         <div class="my-4">
                             <ul class="list-group">
@@ -33,7 +33,7 @@
                             <form method="GET" id="form">
                                 <input type="text" id="nameInput" class="form-control text-center mb-3"
                                     placeholder="Your name" required>
-                                <input type="text" id="scoreInput" class="form-control text-center mb-3"
+                                <input type="number" id="scoreInput" class="form-control text-center mb-3"
                                     placeholder="Your score" required>
                                 <button type="submit" class="btn btn-primary" value="submit"
                                     name="submit">Submit</button>
