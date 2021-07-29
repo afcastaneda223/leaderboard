@@ -9,38 +9,46 @@ const getName = document.getElementById('nameInput');
 const getUl = document.querySelector('ul');
 const getRefresh = document.getElementById('refreshBtn');
 
-getForm.addEventListener('submit', (e) => {
-  const nameValue = getName.value;
-  const scoreValue = getScore.value;
-  e.preventDefault();
-  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BlsQTBvNRc0oLQlcOPFw/scores/', {
+async function fetchStart(a,b) {
+  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BlsQTBvNRc0oLQlcOPFw/scores/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      user: nameValue,
-      score: scoreValue,
+      user: a,
+      score: b,
     }),
   })
-    .then((res) => res.json());
+  .then((res) => res.json());
+  console.log(response)
+}
+
+getForm.addEventListener('submit', (e) => {
+  const nameValue = getName.value;
+  const scoreValue = getScore.value;
+  e.preventDefault();
+  fetchStart(nameValue,scoreValue)
+  getForm.reset()
 });
 
-getRefresh.addEventListener('click', (e) => {
-  e.preventDefault();
-  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BlsQTBvNRc0oLQlcOPFw/scores/', {
-    method: 'GET',
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      getUl.innerHTML = '';
-      data.result.forEach((elem) => {
-        const li = document.createElement('li');
-        li.setAttribute('class', 'list-group-item list-group-item-action');
-        const p = document.createElement('p');
-        p.innerText = `${elem.user}: ${elem.score}`;
-        li.appendChild(p);
-        getUl.appendChild(li);
-      });
-    });
+async function fetchRefresh() {
+  const refresh = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/BlsQTBvNRc0oLQlcOPFw/scores/');
+  const scores = await refresh.json();
+  return scores;
+}
+getRefresh.addEventListener('click', () => {
+fetchRefresh().then(data => {
+  getUl.innerHTML = '';
+  data.result.forEach((elem) => {
+    const li = document.createElement('li');
+    li.setAttribute('class', 'list-group-item list-group-item-action');
+    const p = document.createElement('p');
+    p.innerText = `${elem.user}: ${elem.score}`;
+    li.appendChild(p);
+    getUl.appendChild(li);
+  });
 });
+})
+
+
